@@ -39,7 +39,8 @@ public class RedisService {
         return Boolean.TRUE.equals(redisTemplate.hasKey(key));
     }
 
-    //La primera vez que se llame al método con un id específico, se ejecutará el código dentro del método y el resultado se almacenará en la caché "products" con la clave correspondiente al id.
+    //La primera vez que se llame al método con un id específico, se ejecutará el código dentro del método
+    // y el resultado se almacenará en la caché "products" con la clave correspondiente al id.
     //Las llamadas subsiguientes al método con el mismo id recuperarán el valor directamente de cache
     @Cacheable(value = "products", key = "#p0")
     public String getProductById(String id) {
